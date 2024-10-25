@@ -332,7 +332,7 @@ namespace MediaManager.Platforms.Android.Player
 
         public override Task Stop()
         {
-            Player.Stop(true);
+            Player.Stop();
             return Task.CompletedTask;
         }
 
