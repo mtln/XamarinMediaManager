@@ -115,15 +115,7 @@ namespace MediaManager.Platforms.Android.MediaSession
             //    nm.CreateNotificationChannel(channel);
             //}
 
-            PlayerNotificationManager = new Com.Google.Android.Exoplayer2.UI.PlayerNotificationManager.Builder(
-                this,
-                ForegroundNotificationId,
-                ChannelId)
-                .SetChannelNameResourceId(Resource.String.XamarinMediaManagerName)
-                .SetChannelDescriptionResourceId(Resource.String.XamarinMediaManagerDescription)
-                .SetMediaDescriptionAdapter(MediaDescriptionAdapter)
-                .SetNotificationListener(NotificationListener)
-                .Build();
+           
 
             //Needed for enabling the notification as a mediabrowser.
             NotificationListener = new NotificationListener
@@ -153,6 +145,16 @@ namespace MediaManager.Platforms.Android.MediaSession
                     }
                 }
             };
+
+             PlayerNotificationManager = new Com.Google.Android.Exoplayer2.UI.PlayerNotificationManager.Builder(
+                this,
+                ForegroundNotificationId,
+                ChannelId)
+                .SetChannelNameResourceId(Resource.String.XamarinMediaManagerName)
+                .SetChannelDescriptionResourceId(Resource.String.XamarinMediaManagerDescription)
+                .SetMediaDescriptionAdapter(MediaDescriptionAdapter)
+                .SetNotificationListener(NotificationListener)
+                .Build();
 
             //PlayerNotificationManager.SetFastForwardIncrementMs((long)MediaManager.StepSizeForward.TotalMilliseconds);
             //PlayerNotificationManager.SetRewindIncrementMs((long)MediaManager.StepSizeBackward.TotalMilliseconds);
